@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Groups</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1" user-scalable="no">
+
+        <!--Import Google Fonts (Open Sans and Material Icons)-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="materialize/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+        <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+
+        <script src="js/lib/jquery.min.js" defer></script>
+        <script src="js/lib/jquery-ui.min.js" defer></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js' defer></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js' defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+        <script type="text/babel" src="src/script/app.js" defer></script>
+        <!--<script type="text/javascript" src="bundle.js" charset="utf-8" defer></script>-->
+        <script src="materialize/js/materialize.js" defer></script>
+        <script src="js/app.js" defer></script>
+        <script src="js/modules/smart_search.js" defer></script>
+        <script src="js/modules/groups.js" defer></script>
+        <!--<script type="text/babel">
+            class Group extends React.Component {
+                render() {
+                    console.log('comes')
+                    return (
+                    <div>
+                        <h1>Hi NAREN</h1>
+                    </div>
+                    );
+                }
+                }
+
+                ReactDOM.render(
+                    <Group/>,
+                    document.getElementById('group')
+                );
+        </script>-->
+       
+    </head>
+
+    <body class="groups notransition">
+
+        <!-- SIDEBAR -------------------------------------------------------------------------------------------------->
+        <div class="sidebar">
+            <i class="menu-burger"><span></span></i>
+            <ul class="menu">
+                <li class="active">
+                    <a href="groups.html"><i class="icon-sidebar-menu-1"></i>Groups</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- CONTENT -------------------------------------------------------------------------------------------------->
+        <div class="content">
+            
+            <!-- HEADER ------------------------------------------------------------------------------------------------>
+            <main>
+                <div id="group"></div>
+
+                <div class="main-title">
+                    <h1>Groups</h1>
+                    <a href="groups_new.html" class="add-new btn-floating waves-effect waves-light"><i class="material-icons">add</i></a>
+                    <div class="search-box smart-search right">
+                        <div class="search input-field input-field--search">
+                            <i class="material-icons">search</i>
+                            <input type="text" name="search" placeholder="Search" maxlength="200">
+                        </div>
+                        <ul class="blocks"></ul>
+                        <div class="blocks-data hide"></div>
+                    </div>
+                </div>
+
+                <div class="panel z-depth-1">
+                    <div class="panel-tooltip">
+                        <div class="box z-depth-1">
+                            <span class="left">3 selected</span><span class="right action">Deselect</span>
+                        </div>
+                    </div>
+
+                    <table class="highlight responsive-table table--first" id="table-groups">
+                        <thead>
+                            <tr>
+                                <th data-field="group-name" class="with-check">
+                                    <input type="checkbox" id="check-all" class="filled-in check-all-rows">
+                                    <label for="check-all" class="left"></label>
+                                    <a href="#" class="name with-sort"><span>Group name</span><i class="material-icons">arrow_drop_down</i></a>
+                                </th>
+                                <th data-field="users" class="center">
+                                    <a href="#" class="name with-sort"><span>Users</span><i class="material-icons">arrow_drop_down</i></a>
+                                </th>
+                                <th data-field="apps" class="center">
+                                    <a href="#" class="name with-sort"><span>Apps</span><i class="material-icons">arrow_drop_up</i></a>
+                                </th>
+                                <th data-field="sos" class="center">
+                                    <a href="#" class="name with-sort"><span>SOs</span><i class="material-icons">arrow_drop_down</i></a>
+                                </th>
+                                <th data-field="description" class="">
+                                    <span class="name">Description</span>
+
+                                    <a href="#!" data-activates="table-columns-dropdown"
+                                        class="options activate-dropdown"><i class="icon-options icon-15"></i></a>
+
+                                    <div id="table-columns-dropdown" class="dropdown-content">
+                                        <div class="title">
+                                            Show/Hide Columns
+                                        </div>
+                                        <ul class="check-list with-hover">
+                                            <li>
+                                                <input type="checkbox" id="check-column-1" class="filled-in left" checked="checked">
+                                                <label for="check-column-1">Group name</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="check-column-2" class="filled-in left" checked="checked">
+                                                <label for="check-column-2">Users</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="check-column-3" class="filled-in left" checked="checked">
+                                                <label for="check-column-3">Apps</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="check-column-4" class="filled-in left" checked="checked">
+                                                <label for="check-column-4">SOs</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="check-column-5" class="filled-in left" checked="checked">
+                                                <label for="check-column-5">Description</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="check-column-6" class="filled-in left">
+                                                <label for="check-column-6">Another column</label>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="btn btn-flat btn-flat--blue">Save</a>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="row-1">
+                                <td class="bold">
+                                    <input type="checkbox" id="check-row-1" class="filled-in">
+                                    <label for="check-row-1" class="left"></label>
+                                    <a href="groups_developers.html" class="edit-in-place-label">Developers</a>
+                                    <div class="left edit-in-place hide">
+                                        <div class="input-field">
+                                            <input type="text" value="Developers" placeholder="Group name">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="center">
+                                    <a href="groups_developers.html#tab2" class="txt-link">5</a>
+                                </td>
+                                <td class="center">
+                                    <a href="groups_developers.html#tab3" class="txt-link">564</a>
+                                </td>
+                                <td class="center">
+                                    <a href="groups_developers.html#tab4" class="txt-link">3666</a>
+                                </td>
+                                <td class="with-icons">
+                                    <div class="text">Words To Live By Words To Live By Words To Live By</div>
+                                    <div class="icons">
+                                        <a href="#" class="delete-row" data-rowid="1"><img src="img/icons/delete.svg" alt="" height="19"></a>
+                                        <a href="#" class="edit-row" data-rowid="1"><img src="img/icons/edit.svg" alt="" height="18"></a>
+                                        <a href="#" class="add-sos plus" data-rowid="1"><span>+</span><i class="icon-sos icon-19"></i></a>
+                                        <a href="#" class="add-app plus" data-rowid="1"><span>+</span><i class="icon-app icon-19"></i></a>
+                                        <a href="#" class="add-user plus" data-rowid="1"><span>+</span><i class="icon-user icon-19"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="row-2">
+                                <td class="bold">
+                                    <input type="checkbox" id="check-row-2" class="filled-in">
+                                    <label for="check-row-2" class="left"></label>
+                                    <a href="groups_developers.html" class="edit-in-place-label">Accounting</a>
+                                    <div class="left edit-in-place hide">
+                                        <div class="input-field">
+                                            <input type="text" value="Accounting" placeholder="Group name">
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td class="center">
+                                    16
+                                </td>
+                                <td class="center">
+                                    363
+                                </td>
+                                <td class="center">
+                                    83
+                                </td>
+                                <td class="with-icons">
+                                    <div class="text">Words To Live By Words To Live By Words To Live By</div>
+                                    <div class="icons">
+                                        <a href="#" class="delete-row" data-rowid="2"><img src="img/icons/delete.svg" alt="" height="19"></a>
+                                        <a href="#" class="edit-row" data-rowid="2"><img src="img/icons/edit.svg" alt="" height="18"></a>
+                                        <a href="#" class="add-sos plus" data-rowid="2"><span>+</span><i class="icon-sos icon-19"></i></a>
+                                        <a href="#" class="add-app plus" data-rowid="2"><span>+</span><i class="icon-app icon-19"></i></a>
+                                        <a href="#" class="add-user plus" data-rowid="2"><span>+</span><i class="icon-user icon-19"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="row-3">
+                                <td class="bold">
+                                    <input type="checkbox" id="check-row-3" class="filled-in">
+                                    <label for="check-row-3" class="left"></label>
+                                    Legal
+                                </td>
+                                <td class="center">
+                                    345
+                                </td>
+                                <td class="center">
+                                    4
+                                </td>
+                                <td class="center">
+                                    3646
+                                </td>
+                                <td class="with-icons">
+                                    <div class="text">Words To Live By Words To Live By Words To Live By</div>
+                                    <div class="icons">
+                                        <a href="#" class="delete-row" data-rowid="3"><img src="img/icons/delete.svg" alt="" height="19"></a>
+                                        <a href="#" class="edit-row" data-rowid="3"><img src="img/icons/edit.svg" alt="" height="18"></a>
+                                        <a href="#" class="add-sos plus" data-rowid="3"><span>+</span><i class="icon-sos icon-19"></i></a>
+                                        <a href="#" class="add-app plus" data-rowid="3"><span>+</span><i class="icon-app icon-19"></i></a>
+                                        <a href="#" class="add-user plus" data-rowid="3"><span>+</span><i class="icon-user icon-19"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="row-4">
+                                <td class="bold">
+                                    <input type="checkbox" id="check-row-4" class="filled-in">
+                                    <label for="check-row-4" class="left"></label>
+                                    Human Resourses
+                                </td>
+                                <td class="center">
+                                    64
+                                </td>
+                                <td class="center">
+                                    72
+                                </td>
+                                <td class="center">
+                                    163455
+                                </td>
+                                <td class="with-icons">
+                                    <div class="text">Words To Live By Words To Live By Words To Live By</div>
+                                    <div class="icons">
+                                        <a href="#" class="delete-row" data-rowid="4"><img src="img/icons/delete.svg" alt="" height="19"></a>
+                                        <a href="#" class="edit-row" data-rowid="4"><img src="img/icons/edit.svg" alt="" height="18"></a>
+                                        <a href="#" class="add-sos plus" data-rowid="4"><span>+</span><i class="icon-sos icon-19"></i></a>
+                                        <a href="#" class="add-app plus" data-rowid="4"><span>+</span><i class="icon-app icon-19"></i></a>
+                                        <a href="#" class="add-user plus" data-rowid="4"><span>+</span><i class="icon-user icon-19"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="after-table-buttons">
+                        <a href="#" class="btn btn-flat disabled delete-all-rows" id="btn-delete-groups">Delete Selected</a>
+                        <div class="pagination-fortanix right">
+                            <div class="per-page">
+                                Rows per page: <span class="activate-dropdown" data-activates="per-page-dropdown-1">10 <i class="material-icons">arrow_drop_down</i></span>
+                            </div>
+                            <div class="main-part">
+                                <div class="to-left"><i class="material-icons">chevron_left</i></div>
+                                <div class="nums">1-10 of 100</div>
+                                <div class="to-right"><i class="material-icons">chevron_right</i></div>
+                            </div>
+
+                            <ul id="per-page-dropdown-1" class="dropdown-content with-hover">
+                                <li><a href="#!">10</a></li>
+                                <li><a href="#!">50</a></li>
+                                <li><a href="#!">100</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <div id="modal-delete" class="modal">
+            <div class="modal-content">
+                <h4><span>Delete group</span><i class="close modal-close"></i></h4>
+                <div class="info">
+                    A bunch of text A bunch of text A bunch of text A bunch of text A bunch of text A bunch of text A bunch of text
+                </div>
+                <span class="hide id"></span>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-light btn">Delete</a>
+                <a href="#!" class="modal-action modal-close btn btn-flat btn-flat--blue">Cancel</a>
+            </div>
+        </div>
+
+
+
+        <div id="modal-add-users" class="modal modal--800">
+            <h4><span>Add users</span><i class="close modal-close"></i></h4>
+            <div class="scroll-wrap">
+                <div class="modal-content">
+                    <div class="new-group new-group--add-users">
+                        <div class="stage-2">
+                            <div class="columns">
+                                <div class="col-1">
+                                    <h3 class="head-1">Send invitations</h3>
+                                    <div class="z-depth-1 br-4 by-email-panel">
+                                        <div class="input-field">
+                                            <input type="text" id="user-email">
+                                            <label for="user-email" class="truncate">E-mail</label>
+                                        </div>
+                                        <i class="material-icons add">arrow_forward</i>
+                                    </div>
+
+                                    <h3 class="head-2">Choose from the list</h3>
+                                    <div class="z-depth-1 br-4 by-name-panel">
+                                        <div class="search input-field input-field--search">
+                                            <i class="material-icons">search</i>
+                                            <input type="text" placeholder="Search" maxlength="200">
+                                        </div>
+                                        <div class="max-height-wrap">
+                                            <ul class="check-list with-hover">
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton 2</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton 3</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton 3</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton 3</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                                <li>
+                                                    <label><i class="icon-user icon-19"></i><span>Paul Newton 3</span></label>
+                                                    <i class="material-icons add">arrow_forward</i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 br-4">
+                                    <div class="added-users">
+                                        <ul class="with-hover">
+                                            <li>
+                                                <i class="icon-user icon-19"></i>
+                                                <span>Herbert Vaughn</span>
+                                                <i class="close close--blue"></i>
+                                            </li>
+                                            <li>
+                                                <i class="icon-user icon-19"></i>
+                                                <span>Herbert Vaughn</span>
+                                                <i class="close close--blue"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close btn btn-flat btn-flat--blue">Cancel</a>
+                    <a href="#!" class="modal-action modal-close waves-light btn">Add Users</a>
+                </div>
+            </div>
+        </div><!-- end of modal-add-apps -->
+
+
+        <div id="modal-add-apps" class="modal modal--800">
+            <h4><span>Add apps</span><i class="close modal-close"></i></h4>
+            <div class="scroll-wrap">
+                <div class="modal-content">
+
+                <div class="new-group new-group--add-users">
+                    <div class="stage-3">
+                        <h2>Add apps to TestGroup1</h2>
+                        <div class="columns">
+                            <div class="col-1">
+                                <h3 class="head-1">Create new
+                                    <a href="#" class="right add-new btn-floating waves-effect waves-light" onclick="$('.new-app').toggleClass('visible')"><i class="material-icons">add</i></a></h3>
+                                <div class="z-depth-1 br-4 new-app">
+                                    <div class="input-field">
+                                        <input type="text" id="app-title">
+                                        <label for="app-title" class="truncate">Title of a new app</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="text" id="app-desc">
+                                        <label for="app-desc" class="truncate">Add description</label>
+                                    </div>
+                                    <div class="fw">
+                                        <a href="#" class="right btn btn-flat btn-flat--blue btn-create">Create New<i class="material-icons add">arrow_forward</i></a>
+                                    </div>
+                                </div>
+
+                                <h3 class="head-2">Choose From Existing</h3>
+                                <div class="z-depth-1 br-4 by-name-panel">
+                                    <div class="search input-field input-field--search">
+                                        <i class="material-icons">search</i>
+                                        <input type="text" placeholder="Search" maxlength="200">
+                                    </div>
+                                    <div class="max-height-wrap">
+                                        <ul class="check-list with-hover">
+                                            <li>
+                                                <label><i class="icon-app icon-19"></i><span>Office Stuff</span></label>
+                                                <i class="material-icons add">arrow_forward</i>
+                                            </li>
+                                            <li>
+                                                <label><i class="icon-app icon-19"></i><span>Timetables for dummies</span></label>
+                                                <i class="material-icons add">arrow_forward</i>
+                                            </li>
+                                            <li>
+                                                <label><i class="icon-app icon-19"></i><span>Game scores</span></label>
+                                                <i class="material-icons add">arrow_forward</i>
+                                            </li>
+                                            <li>
+                                                <label><i class="icon-app icon-19"></i><span>Game scores</span></label>
+                                                <i class="material-icons add">arrow_forward</i>
+                                            </li>
+                                            <li>
+                                                <label><i class="icon-app icon-19"></i><span>Game scores</span></label>
+                                                <i class="material-icons add">arrow_forward</i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 br-4">
+                                <div class="added-apps">
+                                    <ul class="with-hover">
+                                        <li>
+                                            <i class="icon-app icon-19"></i>
+                                            <span>App for Bookkeeping</span>
+                                            <i class="close close--blue"></i>
+                                        </li>
+                                        <li>
+                                            <i class="icon-app icon-19"></i>
+                                            <span>New App for Keeping Passwords</span>
+                                            <i class="close close--blue"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close btn btn-flat btn-flat--blue">Cancel</a>
+                    <a href="#!" class="modal-action modal-close waves-light btn">Add Apps</a>
+                </div>
+            </div>
+        </div><!-- end of modal-add-apps -->
+    </body>
+
+    
+</html>

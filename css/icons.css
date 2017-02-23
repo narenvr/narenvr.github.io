@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icons/icomoon.eot?rkynfe');
+  src:  url('../fonts/icons/icomoon.eot?rkynfe#iefix') format('embedded-opentype'),
+    url('../fonts/icons/icomoon.ttf?rkynfe') format('truetype'),
+    url('../fonts/icons/icomoon.woff?rkynfe') format('woff'),
+    url('../fonts/icons/icomoon.svg?rkynfe#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-expiration:before {
+  content: "\e915";
+}
+.icon-lock:before {
+  content: "\e914";
+}
+.icon-group:before {
+  content: "\e913";
+}
+.icon-help:before {
+  content: "\e912";
+}
+.icon-domain:before {
+  content: "\e910";
+}
+.icon-sidebar-menu-8:before {
+  content: "\e90d";
+}
+.icon-sidebar-menu-1:before {
+  content: "\e900";
+}
+.icon-sidebar-menu-2:before {
+  content: "\e901";
+}
+.icon-sidebar-menu-3:before {
+  content: "\e902";
+}
+.icon-sidebar-menu-4:before {
+  content: "\e903";
+}
+.icon-sidebar-menu-5:before {
+  content: "\e904";
+}
+.icon-sidebar-menu-6:before {
+  content: "\e905";
+}
+.icon-sidebar-menu-7:before {
+  content: "\e906";
+}
+.icon-region:before {
+  content: "\e911";
+}
+.icon-app:before {
+  content: "\e90e";
+}
+.icon-sos:before {
+  content: "\e90f";
+}
+.icon-bell:before {
+  content: "\e907";
+}
+.icon-delete:before {
+  content: "\e908";
+}
+.icon-edit:before {
+  content: "\e909";
+}
+.icon-options:before {
+  content: "\e90a";
+}
+.icon-sign-out:before {
+  content: "\e90b";
+}
+.icon-user:before {
+  content: "\e90c";
+}
